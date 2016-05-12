@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-        "name": "cancell_lecture",
+        "name": "TuT休講・補講Viewer",
         "description": "自分の学年、学科に対応した休講情報を表示する",
         "version":  "1.0.0",
         "icons": {
@@ -13,7 +13,7 @@
                 "19": "images/icon/icon_19.png",
                 "38": "images/icon/icon_38.png"
             },
-            "default_title": "TuT 休講 セレクター",
+            "default_title": "TuT休講・補講Viewer",
             "default_popup": "popup.html"
         },
         "background": {
