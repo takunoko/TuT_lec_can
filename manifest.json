@@ -2,7 +2,7 @@
     "manifest_version": 2,
         "name": "cancell_lecture",
         "description": "自分の学年、学科に対応した休講情報を表示する",
-        "version":  "0.1.1",
+        "version":  "1.0.0",
         "icons": {
             "16": "images/icon/icon_16.png",
             "48": "images/icon/icon_48.png",
@@ -16,7 +16,6 @@
             "default_title": "TuT 休講 セレクター",
             "default_popup": "popup.html"
         },
-        "options_page": "options.html",
         "background": {
             "scripts": ["js/background.js"]
         },
@@ -24,11 +23,10 @@
         {
             "matches": ["https://www.ead.tut.ac.jp/board/main.aspx"],
             "js": ["js/get_cancell_info.js"]
-        }
-    ],
+        }],
         "permissions": [
             "activeTab",
-        "strage"
-            ]
+        "storage"
+        ]
 }
 

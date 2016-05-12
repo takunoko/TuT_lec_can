@@ -1,11 +1,9 @@
 (function(){
-    // tab $B$,%"%C%W%G!<%H$5$l$?$H$-(B
+    // タブをアプデした際に実行
     chrome.tabs.onUpdated.addListener(function(tabId){
-        // $B%Z!<%8%"%/%7%g%s$r=P$9(B
         chrome.pageAction.show(tabId);
     })
 
-    // // $B%Z!<%8%"%/%7%g%s%"%$%3%s$r%/%j%C%/$7$?$H$-$N5sF0(B
     // chrome.pageAction.onClicked.addListener(function(tab){
     //     //chrome.tabs.insertCSS(tab.id, { file:"style.css" });
     //     chrome.tabs.executeScript(null,{ file: "js/jquery-1.12.3.min.js"},
