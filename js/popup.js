@@ -1,5 +1,12 @@
+// 休講・補講情報ページ
+var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
+
 $(function(){
-    // 参考: http://d.hatena.ne.jp/yk5656/20141011/1414984933
+    // 休講・補講お知らせページへの移動
+    $("#jp_lec_can_button").click(function (){
+        chrome.tabs.create({url: lec_can_page_url})
+        console.log("clicked jp");
+    });
 
     // saveボタンの処理
     $("#save").click(function (){

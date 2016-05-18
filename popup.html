@@ -2,12 +2,18 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="popup.css">
         <script src="js/jquery-1.12.3.min.js"></script>
         <script src="js/popup.js"></script>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+        <!-- Bootstrapの読み込み -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div id="popup_box">
+            <div id="jp_lec_can_link">
+                <button type="button" class="btn btn-primary" id="jp_lec_can_button">休講・補講 お知らせページ</button>
+            </div>
             <p>学年と学科を選択</p>
 
             <div id="grade">
@@ -34,7 +40,7 @@
                 </select>
             </div>
             <div id="common">
-                <input type="checkbox" id="com" name="com" value="1">開講学科が共通のものを表示する
+                <input type="checkbox" id="com" name="com" value="1">開講学科が共通のものを表示
             </div>
             <div id="button_save">
                 <input id="save" type="button" value="更新">
