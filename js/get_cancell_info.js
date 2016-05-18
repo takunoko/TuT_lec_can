@@ -23,8 +23,6 @@ function update_view(){
         var c = items.cls;
         var com = items.com;
 
-        console.log("com: " + com);
-
         my_data = conv_g_c( g, c);
 
         hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
@@ -37,8 +35,6 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
     if (common_cls_f == true){
         cls += "|共通";
     }
-    console.log("grade : " + grade);
-    console.log("cls   : " + cls);
 
     for (var i = 1, len = tb_r.length; i < len; i++) {
         if (tb_r[i].cells[5].innerText.match(grade) == null || tb_r[i].cells[6].innerText.match(cls) == null) {

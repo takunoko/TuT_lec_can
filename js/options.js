@@ -3,9 +3,6 @@ $(function(){
 
     // saveボタンの処理
     $("#save").click(function (){
-        // chrome.storage.local.set( my_state, function() {
-        //     console.log('stored');
-        // });
         localStorage["grade"] = $("#select_grade").val();
         localStorage["class"] = $("#select_class").val();
     });

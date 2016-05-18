@@ -5,7 +5,6 @@ $(function(){
     // 休講・補講お知らせページへの移動
     $("#jp_lec_can_button").click(function (){
         chrome.tabs.create({url: lec_can_page_url})
-        console.log("clicked jp");
     });
 
     // saveボタンの処理
@@ -17,7 +16,6 @@ $(function(){
         chrome.storage.local.set({grade:$("#select_grade").val()}, function(){});
         chrome.storage.local.set({cls:$("#select_class").val()}, function(){});
         chrome.storage.local.set({com: common}, function(){});
-        console.log('save');
 
         chrome.tabs.getSelected(null, function(tab) {
             var code = 'update_view();';
@@ -29,8 +27,6 @@ $(function(){
     chrome.storage.local.get(function(items){
         if (items.grade != null){
             $("#select_grade option[value=" + items.grade + "]").attr("selected", true);
-        }else{
-            console.log("null");
         }
         if (items.cls != null) {
             $("#select_class option[value=" + items.cls + "]").attr("selected", true);
