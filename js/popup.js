@@ -30,11 +30,14 @@ $(function(){
         }
         if (items.cls != null) {
             $("#select_class option[value=" + items.cls + "]").attr("selected", true);
-        };
+        }
         if (items.com != null) {
             if(items.com == true){
                 $('#com').prop("checked", true);
             }
-        };
+        }else{
+            // 未定義状態でチェックが入ってるように
+            $('#com').prop("checked", true);
+        }
     });
 });

@@ -5,7 +5,7 @@
 var tb_c = document.getElementById('grvCancel');
 var tb_u = document.getElementById('grvSupplement');
 
-// 個々の値をもってきたい
+// とりあえずページが読み込まれた時点で実行
 update_view();
 
 function update_view(){
@@ -24,6 +24,9 @@ function update_view(){
         var com = items.com;
 
         my_data = conv_g_c( g, c);
+
+        // 未定義状態ではtrueに設定
+        if(com == null){com = true;}
 
         hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
         hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
