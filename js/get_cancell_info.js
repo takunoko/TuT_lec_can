@@ -46,6 +46,30 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
             tb_r[i].style.display = '';
         }
     }
+
+    // 本日の日付のハイライト
+    today = new Date();
+    year = today.getFullYear();
+    month = today.getMonth()+1;
+    day = today.getDate();
+
+    if (parseInt(month).toString(10).length == 1){
+        month = "0" + month;
+    }
+    if (parseInt(day).toString(10).length == 1){
+        day = "0" + day;
+    }
+    var date = (year + "/" + month + "/" + day);
+    console.log(date);
+
+    for (var i = 0, len = tb_r.length; i < len; i++) {
+        if (tb_r[i].cells[1].innerText.match(date)){
+            tb_r[i].style.backgroundColor = '#f6ad49';
+        }
+    }
+
+    // for (var i = 0; i < tb_r[i].length; i++) {
+    // }
 }
 
 // 検索文字列と選択を合わせる
