@@ -10,8 +10,8 @@ update_view();
 
 function update_view(){
     // ページの情報
-    tb_c_r = tb_c.rows;
-    tb_s_r = tb_u.rows;
+    var tb_c_r = tb_c.rows;
+    var tb_s_r = tb_u.rows;
 
     // 設定の初期化
     var grade = '';
@@ -31,6 +31,10 @@ function update_view(){
         hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
         hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
     });
+
+    // 同期処理である必要は無い
+    day_hilight(tb_c_r);
+    day_hilight(tb_s_r);
 }
 
 // 要素を非表示にする関数
@@ -39,6 +43,7 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
         cls += "|共通";
     }
 
+    // 不要な要素の削除
     for (var i = 1, len = tb_r.length; i < len; i++) {
         if (tb_r[i].cells[5].innerText.match(grade) == null || tb_r[i].cells[6].innerText.match(cls) == null) {
             tb_r[i].style.display = 'none';
@@ -46,8 +51,11 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
             tb_r[i].style.display = '';
         }
     }
+}
 
-    // 本日の日付のハイライト
+// ハイライトの実行
+function day_hilight(tb_r){
+     // 本日の日付のハイライト
     today = new Date();
     year = today.getFullYear();
     month = today.getMonth()+1;
@@ -67,9 +75,6 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
             tb_r[i].style.backgroundColor = '#f6ad49';
         }
     }
-
-    // for (var i = 0; i < tb_r[i].length; i++) {
-    // }
 }
 
 // 検索文字列と選択を合わせる
