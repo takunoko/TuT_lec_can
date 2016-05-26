@@ -3,18 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>TuT休講・補講Viewer</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
     <h1>TuT休講・補講Viewer</h1>
 
-    <h2>概要</h2> 
+    <h2>概要</h2>
     <div id="abstract">
-        このChromeプラグインは豊橋技術科学大学の休講・補講情報のページを自分に関係のない情報を削除する事により見やすくするための大学非公式アプリです。
+        このChromeプラグインは豊橋技術科学大学の休講・補講情報のページを自分に関係のない情報を削除する事により見やすくするための大学非公式アプリです。<br /> <br />
+
+        <div class="img">
+            <div class="img_title">この見ずらい画面が。。。 </div>
+            <img src="img/unuse_img.png" alt="設定画面" width="500px">
+        </div>
+
+        <div class="img">
+            <div class="img_title">自分の学年・学科を選択すると…</div>
+            <img src="img/setting_page.png" alt="設定画面" width="500px">
+        </div>
+
+        <div class="img">
+            <div class="img_title">要らない情報が非表示に！ </div>
+            <img src="img/use_img.png" alt="設定画面" width="500px">
+            <!-- (学年:B3  学科:情報・知能工学 を選択時) -->
+        </div>
+    </div>
+
+    <h2>インストール方法</h2>
+    <div>
+        ※ Google Chromeを使っている方のみ利用できます。
+        <ol>
+            <li>Chrome webストアの<a href="https://chrome.google.com/webstore/detail/tut%E4%BC%91%E8%AC%9B%E3%83%BB%E8%A3%9C%E8%AC%9Bviewer/igleagopekaeceohhooiklekhnipibpj?utm_source=chrome-ntp-icon"  target="_blank">TuT休講・補講Viewer</a>に移動します。</li>
+            <li>右上にある[Chrome に追加]をクリック。</li>
+            <li>ブラウザの右上にTuT休講・補講Viewerのアイコンが表示されたらインストール完了。</li>
+        </ol>
+       <!--
+        <div class="img">
+            <img src="img/detail_page.png" alt="detail page" width="500px">
+        </div>
+        -->
     </div>
 
     <h2>使い方</h2>
     <div id="how_to_use">
-        そのうち作ります。
+        <ol>
+            <li>ブラウザ右上にあるTuT休講・補講Viewerのアイコンをクリック</li>
+            <li>[休講・補講 お知らせのページ] に移動します</li>
+            <li>もう一度、右上のアイコンをクリックして設定画面を開きます。</li>
+            <li>そこで、学年と学科を選択します。</li>
+            <li>最後に更新ボタンを押すと画面上から自分に関係のない情報が削除されます。</li>
+            <li> 便利〜 </li>
+        </ol>
     </div>
 
     <h2>注意事項</h2>
@@ -22,6 +61,31 @@
         ※大学非公式アプリです。 <br />
         このアプリケーションの使用により生じたいかなる不利益に対しても制作者は一切の責任を負いません。使用者の責人においてご使用ください。
     </div>
+
+    <h3>更新情報</h3>
+    <div>
+        <h5>v1.0.0</h5>
+        <div class="ver_content">
+            <ul>
+                <li>とりあえず機能を一通り実装して公開</li>
+            </ul>
+        </div>
+        <h5>1.0.1</h5>
+        <div class="ver_content">
+            <ul>
+                <li>iconデータの画像サイズを修正</li>
+            </ul>
+        </div>
+        <h5>1.1.0</h5>
+        <div class="ver_content">
+            <ul>
+                <li>休講・補講ページへのリンクを追加</li>
+                <li>デフォルトで共通科目のチェックが入っていない問題を解消</li>
+                <li>開発時，ログ出力を削除</li>
+            </ul>
+        </div>
+    </div>
+
 
     <h2>制作者情報</h2>
     <div id="developer">
