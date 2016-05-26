@@ -27,7 +27,8 @@
         "permissions": [
             "activeTab",
         "storage",
-        "tabs"
+        "tabs",
+        "https://www.ead.tut.ac.jp/"
         ]
 }
 

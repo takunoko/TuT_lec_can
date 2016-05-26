@@ -1,9 +1,51 @@
 #popup_box{
-    width: 200px;
+    width: 230px;
+}
+
+#dotay_info_title{
+    margin: auto;
+}
+
+#cancel_table .tab_time{
+    width: 20px;
+}
+#cancel_table .tab_state{
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+#cancel_table .tab_sub{
+    width: 130px;
+    text-align: center;
+    vertical-align: middle;
+}
+#cancel_table .tab_teach{
+    width: 65px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#cancel_table .tab_time_d{
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+#cancel_table .tab_state_d{
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+#cancel_table .tab_sub_d{
+    text-align: center;
+    vertical-align: middle;
+}
+#cancel_table .tab_teach_d{
+    text-align: center;
+    vertical-align: middle;
 }
 
 #jp_lec_can_button{
-    width: auto;
+    width: 230px;
     outline: none;
 }
 
