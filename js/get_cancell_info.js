@@ -68,7 +68,6 @@ function day_hilight(tb_r){
         day = "0" + day;
     }
     var date = (year + "/" + month + "/" + day);
-    console.log(date);
 
     for (var i = 0, len = tb_r.length; i < len; i++) {
         if (tb_r[i].cells[1].innerText.match(date)){
