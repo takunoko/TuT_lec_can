@@ -2,7 +2,6 @@
 var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
 
 $(function(){
-    /*
     // 休講・補講お知らせページへの移動
     $("#jp_lec_can_button").click(function (){
         chrome.tabs.create({url: lec_can_page_url})
@@ -42,7 +41,6 @@ $(function(){
         }
     });
 
-    */
     // 休講，補講情報を持ってくる
     // 参考: https://developer.chrome.com/apps/app_external#external
     $(function() {
