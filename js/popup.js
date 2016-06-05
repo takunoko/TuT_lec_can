@@ -82,9 +82,6 @@ function update_popup_today(dom_data, grade, cls) {
     var cs_data = create_data_frame(tb_c_r, tb_s_r);
 
     var D_info = new Date();
-    // デバッグ用
-    D_info = Date.parse("2016/06/06");
-    D_info = new Date(D_info);
 
     // ヘッダー以外全削除
     $('#cancel_table').find("tr:gt(0)").remove();
