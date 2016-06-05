@@ -110,7 +110,7 @@ function update_popup_today(dom_data, grade, cls) {
         }
     }
     if(cs_cnt == 0){
-        $('#cancel_table').append('<td colspan="4" id="tab_none"> 本日の休講・補講情報はありません </td>');
+        $('#cancel_table').append('<tr class="cancel_table_tr"><td colspan="4" id="tab_none"> 本日の休講・補講情報はありません </td></tr>');
     }
 }
 

@@ -60,7 +60,6 @@ function day_hilight(tb_r, state){
     year = today.getFullYear();
     month = today.getMonth()+1;
     day = today.getDate();
-    day = 6;
 
     if (parseInt(month).toString(10).length == 1){
         month = "0" + month;
