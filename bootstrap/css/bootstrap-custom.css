@@ -1,0 +1,4 @@
+/* bootstrapを上書き */
+.table tbody tr td{
+    vertical-align: middle;
+}

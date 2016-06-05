@@ -4,10 +4,9 @@
         <meta charset="utf-8">
         <!-- jquery -->
         <script src="js/jquery-1.12.3.min.js"></script>
-        <!-- 別サイトから情報を持ってくる -->
-        <script src="js/jquery.xdomainajax.js"></script>
         <!-- Bootstrapの読み込み -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap-custom.css" rel="stylesheet">
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <!-- 自分の設定 -->
         <script src="js/popup.js"></script>
@@ -21,19 +20,16 @@
 
             <div id="today_info">
                 <div id="doday_info_title">
-                    本日の休講・補講情報
+                    本日[<div id="today_str"></div>]の休講・補講情報
                 </div>
                 <table class="table" id="cancel_table">
                     <tr class="cancel_table_tr" id="can_table_header">
-                        <th class="tab_time" scope="row">時</th>
-                        <th class="tab_state" scope="row">情</th>
+                        <th class="tab_state" scope="row"></th>
+                        <th class="tab_time" scope="row">時限</th>
                         <th class="tab_sub" scope="row">科目</th>
-                        <th class="tab_teach" scope="row">担</th>
+                        <th class="tab_teach" scope="row">担当</th>
                     </tr>
-                    <tr class="cancel_table_tr">
-                        <td colspan="3">休講・補講情報はありません．</td>
-                    </tr>
-                </table>
+               </table>
             </div>
 
             <p>学年と学科を選択</p>

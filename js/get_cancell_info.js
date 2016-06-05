@@ -32,9 +32,8 @@ function update_view(){
         hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
     });
 
-    // 同期処理である必要は無い
-    day_hilight(tb_c_r);
-    day_hilight(tb_s_r);
+    day_hilight(tb_c_r, 0);
+    day_hilight(tb_s_r, 1);
 }
 
 // 要素を非表示にする関数
@@ -54,12 +53,14 @@ function hiddenUnnecessaryData(tb_r, grade, cls, common_cls_f) {
 }
 
 // ハイライトの実行
-function day_hilight(tb_r){
+// state = 0:休講 | 1:補講
+function day_hilight(tb_r, state){
      // 本日の日付のハイライト
     today = new Date();
     year = today.getFullYear();
     month = today.getMonth()+1;
     day = today.getDate();
+    day = 6;
 
     if (parseInt(month).toString(10).length == 1){
         month = "0" + month;
@@ -71,7 +72,7 @@ function day_hilight(tb_r){
 
     for (var i = 0, len = tb_r.length; i < len; i++) {
         if (tb_r[i].cells[1].innerText.match(date)){
-            tb_r[i].style.backgroundColor = '#f6ad49';
+            tb_r[i].style.backgroundColor = (state == 0) ? '#afeeee' : '#f93';
         }
     }
 }

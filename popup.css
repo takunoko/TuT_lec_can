@@ -1,18 +1,29 @@
+/* 全体 */
 #popup_box{
-    width: 230px;
+    width: 250px;
+}
+
+/* ジャンプボタン */
+#jp_lec_can_button{
+    width: 100%;
+    outline: none;
 }
 
 #dotay_info_title{
     margin: auto;
 }
-
-#cancel_table .tab_time{
-    width: 20px;
+#today_str{
+    display: inline-block;
 }
+
+/* 本日の情報 ヘッダー */
 #cancel_table .tab_state{
     width: 20px;
     text-align: center;
     vertical-align: middle;
+}
+#cancel_table .tab_time{
+    width: 50px;
 }
 #cancel_table .tab_sub{
     width: 130px;
@@ -25,30 +36,39 @@
     vertical-align: middle;
 }
 
-#cancel_table .tab_time_d{
-    font-size: 20px;
+/* 本日の情報 内容 */
+#cancel_table_tr, .can{
+    /* 休講行 */
+    background-color: #afeeee;
+}
+#cancel_table_tr, .sup{
+    /* 補講行 */
+    background-color: #f93;
+}
+.tab_state_d{
+    font-size: 25px;
     text-align: center;
     vertical-align: middle;
 }
-#cancel_table .tab_state_d{
-    font-size: 30px;
+.tab_time_d{
+    font-size: 25px;
     text-align: center;
     vertical-align: middle;
 }
-#cancel_table .tab_sub_d{
+.tab_sub_d{
     text-align: center;
     vertical-align: middle;
 }
-#cancel_table .tab_teach_d{
+.tab_teach_d{
+    text-align: center;
+    vertical-align: middle;
+}
+#tab_none{
     text-align: center;
     vertical-align: middle;
 }
 
-#jp_lec_can_button{
-    width: 230px;
-    outline: none;
-}
-
+/* 設定部 */
 #button_save{
     margin-left: auto;
 }
