@@ -46,12 +46,12 @@ $(function(){
     $(function() {
         today = new Date;
         $('#today_str').text(get_day_str(today));
-        update_popup();
+        update_popup(today);
     });
 });
 
 // popupに本日の休講情報を表示
-function update_popup(){
+function update_popup(D_info){
     var grade = "";
     var cls = "";
     var com = true;
@@ -66,13 +66,13 @@ function update_popup(){
         // 自分の情報の規定値の取得
         chrome.storage.local.get(function(items){
             my_data = conv_g_c( items.grade, items.cls, items.com);
-            update_popup_today(dom_data, my_data.grade, my_data.cls);
+            update_popup_today(dom_data, my_data.grade, my_data.cls, D_info);
         });
     };
     xhr.send();
 }
 
-function update_popup_today(dom_data, grade, cls) {
+function update_popup_today(dom_data, grade, cls, D_info) {
     var tb_c = dom_data.getElementById('grvCancel');
     var tb_u = dom_data.getElementById('grvSupplement');
 
@@ -81,9 +81,6 @@ function update_popup_today(dom_data, grade, cls) {
 
     var cs_data = create_data_frame(tb_c_r, tb_s_r);
 
-    var D_info = new Date();
-
-    // ヘッダー以外全削除
     $('#cancel_table').find("tr:gt(0)").remove();
 
     // いい感じにデータをセレクトしたい。
