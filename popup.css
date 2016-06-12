@@ -68,6 +68,13 @@
     vertical-align: middle;
 }
 
+/* 翌日 前日ボタン */
+#select_day{
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
 /* 設定部 */
 #button_save{
     margin-left: auto;

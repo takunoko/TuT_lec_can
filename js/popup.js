@@ -1,7 +1,10 @@
 // 休講・補講情報ページ
 var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
 
+var popup_day = 0;
+
 $(function(){
+    today = new Date;
     // 休講・補講お知らせページへの移動
     $("#jp_lec_can_button").click(function (){
         chrome.tabs.create({url: lec_can_page_url})
@@ -20,7 +23,14 @@ $(function(){
         chrome.tabs.getSelected(null, function(tab) {
             var code = 'update_view();';
             chrome.tabs.executeScript(tab.id, {code: code});
-            update_popup();
+
+            // ポップアップの更新
+            $('#today_str').text(get_day_str(today));
+            day = new Date();
+            popup_day += 1;
+            day.setDate( today.getDate() + popup_day);    // n日後に日付を移動
+            $('#today_str').text(get_day_str(day));
+            update_popup(day);
         });
     });
 
@@ -44,9 +54,24 @@ $(function(){
 
     // 休講，補講情報を取得、popupに表示
     $(function() {
-        today = new Date;
         $('#today_str').text(get_day_str(today));
         update_popup(today);
+    });
+
+    // 翌日，前日ボタンの処理
+    $("#button_next_day").click(function (){
+        day = new Date();
+        popup_day += 1;
+        day.setDate( today.getDate() + popup_day);    // n日後に日付を移動
+        $('#today_str').text(get_day_str(day));
+        update_popup(day);
+    });
+    $("#button_prev_day").click(function (){
+        day = new Date;
+        popup_day -= 1;
+        day.setDate( today.getDate() + popup_day);    // n日後に日付を移動
+        $('#today_str').text(get_day_str(day));
+        update_popup(day);
     });
 });
 
@@ -107,7 +132,7 @@ function update_popup_today(dom_data, grade, cls, D_info) {
         }
     }
     if(cs_cnt == 0){
-        $('#cancel_table').append('<tr class="cancel_table_tr"><td colspan="4" id="tab_none"> 本日の休講・補講情報はありません </td></tr>');
+        $('#cancel_table').append('<tr class="cancel_table_tr"><td colspan="4" id="tab_none"> 休講・補講情報はありません </td></tr>');
     }
 }
 
