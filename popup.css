@@ -1,9 +1,9 @@
-/* Á´ÂÎ */
+/* å…¨ä½“ */
 #popup_box{
     width: 250px;
 }
 
-/* ¥¸¥ã¥ó¥×¥Ü¥¿¥ó */
+/* ã‚¸ãƒ£ãƒ³ãƒ—ãƒœã‚¿ãƒ³ */
 #jp_lec_can_button{
     width: 100%;
     outline: none;
@@ -16,7 +16,7 @@
     display: inline-block;
 }
 
-/* ËÜÆü¤Î¾ğÊó ¥Ø¥Ã¥À¡¼ */
+/* æœ¬æ—¥ã®æƒ…å ± ãƒ˜ãƒƒãƒ€ãƒ¼ */
 #cancel_table .tab_state{
     width: 20px;
     text-align: center;
@@ -36,13 +36,13 @@
     vertical-align: middle;
 }
 
-/* ËÜÆü¤Î¾ğÊó ÆâÍÆ */
+/* æœ¬æ—¥ã®æƒ…å ± å†…å®¹ */
 #cancel_table_tr, .can{
-    /* µÙ¹Ö¹Ô */
+    /* ä¼‘è¬›è¡Œ */
     background-color: #afeeee;
 }
 #cancel_table_tr, .sup{
-    /* Êä¹Ö¹Ô */
+    /* è£œè¬›è¡Œ */
     background-color: #f93;
 }
 .tab_state_d{
@@ -68,14 +68,14 @@
     vertical-align: middle;
 }
 
-/* ÍâÆü Á°Æü¥Ü¥¿¥ó */
+/* ç¿Œæ—¥ å‰æ—¥ãƒœã‚¿ãƒ³ */
 #select_day{
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
 }
 
-/* ÀßÄêÉô */
+/* è¨­å®šéƒ¨ */
 #button_save{
     margin-left: auto;
 }
