@@ -58,7 +58,7 @@ $(function(){
         update_popup(today);
     });
 
-    // 翌日，前日ボタンの処理
+    // 前日，当日，翌日ボタンの処理
     $("#button_next_day").click(function (){
         day = new Date();
         popup_day += 1;
@@ -69,6 +69,13 @@ $(function(){
     $("#button_prev_day").click(function (){
         day = new Date;
         popup_day -= 1;
+        day.setDate( today.getDate() + popup_day);    // n日後に日付を移動
+        $('#today_str').text(get_day_str(day));
+        update_popup(day);
+    });
+    $("#button_today").click(function (){
+        day = new Date;
+        popup_day = 0;
         day.setDate( today.getDate() + popup_day);    // n日後に日付を移動
         $('#today_str').text(get_day_str(day));
         update_popup(day);
