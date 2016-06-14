@@ -3,7 +3,7 @@
         "name": "TuT休講・補講Viewer",
         "short_name": "TuT休補",
         "description": "自分の学年、学科に対応した休講情報を表示する",
-        "version":  "1.3.0",
+        "version":  "1.3.1",
         "icons": {
             "16": "images/icon/icon_16.png",
             "48": "images/icon/icon_48.png",
