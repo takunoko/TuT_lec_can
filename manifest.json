@@ -23,7 +23,7 @@
         "content_scripts": [
         {
             "matches": ["https://www.ead.tut.ac.jp/board/main.aspx"],
-            "js": ["js/get_cancell_info.js"]
+            "js": ["js/jquery-1.12.3.min.js", "js/get_cancell_info.js"]
         }],
         "permissions": [
             "activeTab",
