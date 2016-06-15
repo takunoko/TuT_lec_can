@@ -35,7 +35,9 @@ function update_view(){
     var tb_u = document.getElementById('grvSupplement');
 
     // 自動更新を削除
-    $("body").removeAttr("onload");
+    $('body').removeAttr("onload");
+    // 謎のformタグの削除
+    $('form[name=frmMain]').children().unwrap();
 
     // ページの情報
     var tb_c_r = tb_c.rows;
