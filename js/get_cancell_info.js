@@ -24,15 +24,19 @@ function add_hidden_button(tb_r){
 }
 
 function add_hidden_list(name){
-    chrome.storage.local.get(function(items) {
-        hidden_list = (items.hidden_list == null) ? "" : items.hidden_list;
-        console.log(hidden_list);
-    });
+    // chrome.storage.local.get(function(items) {
+    //     hidden_list = (items.hidden_list == null) ? "" : items.hidden_list;
+    //     console.log(hidden_list);
+    // });
 }
 
 function update_view(){
     var tb_c = document.getElementById('grvCancel');
     var tb_u = document.getElementById('grvSupplement');
+
+    // 自動更新を削除
+    $("body").removeAttr("onload");
+    console.log("ういうい");
 
     // ページの情報
     var tb_c_r = tb_c.rows;
@@ -43,27 +47,27 @@ function update_view(){
     var cls = '';
 
     // 非同期処理なため、入れ子で書いておく
-    chrome.storage.local.get(function(items) {
-        var g = items.grade;
-        var c = items.cls;
-        var com = items.com;
+    // chrome.storage.local.get(function(items) {
+    //     var g = items.grade;
+    //     var c = items.cls;
+    //     var com = items.com;
 
-        my_data = conv_g_c( g, c);
+    //     my_data = conv_g_c( g, c);
 
-        // 未定義状態ではtrueに設定
-        if(com == null){com = true;}
+    //     // 未定義状態ではtrueに設定
+    //     if(com == null){com = true;}
 
-        hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
-        hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
+    //     hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
+    //     hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
 
-        // debug
-        // 要素の非表示について
-        hidden_list = ["確率・統計論(確率・統計論-b)","ソフトウェア演習Ⅰ(ソフトウェア演習Ⅰ-a)"];
+    //     // debug
+    //     // 要素の非表示について
+    //     hidden_list = ["確率・統計論(確率・統計論-b)","ソフトウェア演習Ⅰ(ソフトウェア演習Ⅰ-a)"];
 
-        // 教科名による非表示
-        subject_hidden(tb_c_r, hidden_list);
-        subject_hidden(tb_s_r, hidden_list);
-    });
+    //     // 教科名による非表示
+    //     subject_hidden(tb_c_r, hidden_list);
+    //     subject_hidden(tb_s_r, hidden_list);
+    // });
 
     // 削除ボタンの追加
     add_hidden_button(tb_c_r);

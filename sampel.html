@@ -22,15 +22,15 @@
 
 	<script type="text/javascript">
         // 自動更新はめんどいから切る
-	    // function redirect(nextUrl, time) {
-	    //     setTimeout('location.href = ' + '\"' + nextUrl + '\"', time);
-	    // }
+	    function redirect(nextUrl, time) {
+	        setTimeout('location.href = ' + '\"' + nextUrl + '\"', time);
+	    }
 	</script>
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="js/get_cancell_info.js"></script>
 </head>
-<!-- <body id="body"> onload="redirect(&quot;https://www.ead.tut.ac.jp/board/main.aspx&quot;, 60000);"> -->
-<body id="body">
+<body id="body" onload="redirect(&quot;https://www.ead.tut.ac.jp/board/main.aspx&quot;, 10000);">
+<!-- <body id="body"> -->
         <!-- ここから休講情報本体 -->
         <div>
             <table id="tblMain" style="border-collapse:collapse; width:98%;">
