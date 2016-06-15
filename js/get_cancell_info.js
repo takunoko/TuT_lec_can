@@ -36,7 +36,6 @@ function update_view(){
 
     // 自動更新を削除
     $("body").removeAttr("onload");
-    console.log("ういうい");
 
     // ページの情報
     var tb_c_r = tb_c.rows;
