@@ -1,33 +1,48 @@
 // 休講 Cancel
 // 補講 Supplement
 
-// とりあえずページが読み込まれた時点で実行
-// update_view();
-
 $(document).ready(function(){
     update_view();
 });
 
 // 休講情報の番号を非表示ボタンに置き換える
-function add_hidden_button(tb_r){
+function add_hidden_button(){
     // ボタンの追加処理
     $("#grvCancel > tbody > tr > td:first-child").css('width', '5%');
     $("#grvCancel > tbody > tr > td:first-child").html('<button class="delete_button">非表示</button>');
+
+    $("#grvSupplement > tbody > tr > td:first-child").css('width', '5%');
+    $("#grvSupplement > tbody > tr > td:first-child").html('<button class="delete_button">非表示</button>');
 
     // ボタンクリック時のイベント
     $(".delete_button").on("click", function(){
         // 教科名を取得
         sub_name = ($(this).closest('tr').children('td:eq(3)').get(0).innerHTML);
         add_hidden_list(sub_name);
-        console.log(sub_name);
     });
 }
 
 function add_hidden_list(name){
-    // chrome.storage.local.get(function(items) {
-    //     hidden_list = (items.hidden_list == null) ? "" : items.hidden_list;
-    //     console.log(hidden_list);
-    // });
+    chrome.storage.local.get(function(items) {
+        hidden_list = (items.hidden_list == null) ? [] : JSON.parse(items.hidden_list);
+        // デバッグ リストを空にする
+        // hidden_list = [];
+        if ($.inArray(name, hidden_list) >= 0) {
+            // 存在する
+        }else{
+            // 未追加．追加する
+            hidden_list.push(name);
+            chrome.storage.local.set({hidden_list:JSON.stringify(hidden_list)}, function(){});
+        }
+        // console.log(name);
+        console.log(hidden_list);
+
+        // 更新した情報で再描画
+        var tb_c = document.getElementById('grvCancel');
+        var tb_u = document.getElementById('grvSupplement');
+        subject_hidden(tb_c.rows, hidden_list);
+        subject_hidden(tb_u.rows, hidden_list);
+    });
 }
 
 function update_view(){
@@ -48,31 +63,32 @@ function update_view(){
     var cls = '';
 
     // 非同期処理なため、入れ子で書いておく
-    // chrome.storage.local.get(function(items) {
-    //     var g = items.grade;
-    //     var c = items.cls;
-    //     var com = items.com;
+    chrome.storage.local.get(function(items) {
+        var g = items.grade;
+        var c = items.cls;
+        var com = items.com;
 
-    //     my_data = conv_g_c( g, c);
+        my_data = conv_g_c( g, c);
 
-    //     // 未定義状態ではtrueに設定
-    //     if(com == null){com = true;}
+        // 未定義状態ではtrueに設定
+        if(com == null){com = true;}
 
-    //     hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
-    //     hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
+        hiddenUnnecessaryData(tb_c_r, my_data.grade, my_data.cls, com);
+        hiddenUnnecessaryData(tb_s_r, my_data.grade, my_data.cls, com);
+    });
 
-    //     // debug
-    //     // 要素の非表示について
-    //     hidden_list = ["確率・統計論(確率・統計論-b)","ソフトウェア演習Ⅰ(ソフトウェア演習Ⅰ-a)"];
+    // 要素の非表示について
+    hidden_list = [];
+    chrome.storage.local.get(function(items) {
+        hidden_list = (items.hidden_list == null) ? [] : JSON.parse(items.hidden_list);
 
-    //     // 教科名による非表示
-    //     subject_hidden(tb_c_r, hidden_list);
-    //     subject_hidden(tb_s_r, hidden_list);
-    // });
+        // 教科名による非表示
+        subject_hidden(tb_c_r, hidden_list);
+        subject_hidden(tb_s_r, hidden_list);
+    });
 
-    // 削除ボタンの追加
-    add_hidden_button(tb_c_r);
-    add_hidden_button(tb_s_r);
+    // 非表示ボタンの追加
+    add_hidden_button();
 
     // 日付のハイライト
     day_hilight(tb_c_r, 0);

@@ -1,6 +1,4 @@
-// 休講・補講情報ページ
 var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
-
 var popup_day = 0;
 
 $(function(){
