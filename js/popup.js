@@ -101,13 +101,13 @@ function update_popup(D_info){
         // 自分の情報の規定値の取得
         chrome.storage.local.get(function(items){
             my_data = conv_g_c( items.grade, items.cls, items.com);
-            update_popup_today(dom_data, my_data.grade, my_data.cls, D_info);
+            update_popup_today(dom_data, my_data.grade, my_data.cls, items.hidden_list, D_info);
         });
     };
     xhr.send();
 }
 
-function update_popup_today(dom_data, grade, cls, D_info) {
+function update_popup_today(dom_data, grade, cls, origin_hidden_list, D_info) {
     var tb_c = dom_data.getElementById('grvCancel');
     var tb_u = dom_data.getElementById('grvSupplement');
 
@@ -115,6 +115,7 @@ function update_popup_today(dom_data, grade, cls, D_info) {
     var tb_s_r = tb_u.rows;
 
     var cs_data = create_data_frame(tb_c_r, tb_s_r);
+    var hidden_list = (origin_hidden_list == null) ? [] : JSON.parse(origin_hidden_list);
 
     $('#cancel_table').find("tr:gt(0)").remove();
 
@@ -126,18 +127,21 @@ function update_popup_today(dom_data, grade, cls, D_info) {
         if (match_info(cs_data[i], grade, cls)){
             // 日付の一致
             if (match_day(new Date(cs_data[i][1]) ,D_info)){
-                cs_cnt++;
-                if (cs_data[i][0] == '休'){
-                    row_txt  = '<tr class="cancel_table_tr can">\n';
-                }else{
-                    row_txt  = '<tr class="cancel_table_tr sup">\n';
+                // 非表示リストに含まれていないか
+                if (match_hidden_list(cs_data[i][3], hidden_list) != true) {
+                    cs_cnt++;
+                    if (cs_data[i][0] == '休'){
+                        row_txt  = '<tr class="cancel_table_tr can">\n';
+                    }else{
+                        row_txt  = '<tr class="cancel_table_tr sup">\n';
+                    }
+                    row_txt += '<td class="tab_state tab_state_d" scope="row">' + cs_data[i][0] + '</td>';
+                    row_txt += '<td class="tab_time tab_time_d" scope="row">' + cs_data[i][2] + '</td>\n';
+                    row_txt += '<td class="tab_sub tab_sub_d" scope="row">' + cs_data[i][3] + '</td>\n';
+                    row_txt += '<td class="tab_teach tab_teach_d" scope="row">' + cs_data[i][4] + '</td>';
+                    row_txt += '</tr>';
+                    $('#cancel_table').append(row_txt);
                 }
-                row_txt += '<td class="tab_state tab_state_d" scope="row">' + cs_data[i][0] + '</td>';
-                row_txt += '<td class="tab_time tab_time_d" scope="row">' + cs_data[i][2] + '</td>\n';
-                row_txt += '<td class="tab_sub tab_sub_d" scope="row">' + cs_data[i][3] + '</td>\n';
-                row_txt += '<td class="tab_teach tab_teach_d" scope="row">' + cs_data[i][4] + '</td>';
-                row_txt += '</tr>';
-                $('#cancel_table').append(row_txt);
             }
         }
     }
@@ -160,6 +164,46 @@ function match_day(a, b){
         return true;
     }
     return false;
+}
+
+// hidden_listにaの文字列が含まれるかどうか
+function match_hidden_list(a, hidden_list){
+    // hidden_listが空なら何もしない
+    console.log(hidden_list);
+    if (hidden_list.length == 0) {
+        return false;
+    }
+    hidden_str = "";
+    hidden_str = convert_regexp(hidden_list);
+    console.log(a);
+
+    if (a.match(hidden_str) != null){
+        // nullじゃない -> 一致した。
+        return true;
+    }
+    // hidden_listに含まれないとfalseを返す
+    return false;
+}
+// パターンマッチングに利用する文字列を生成する
+function convert_regexp(pattern_list){
+    // パターンリストが空なら
+    if (pattern_list.length <= 0) {
+        return "";
+    }
+
+    // パターンの文字列を作成する
+    // パターンの文字列を正規表現で利用できるようにエスケープする
+    // ()しか対応してないから事故るかも．．．
+    // この場合のパターンは完全一致で．
+    regexp_str = '^' + pattern_list[0].replace(/\(/g, '\\(')
+            .replace(/\)/g, '\\)') + '$';
+    for (var s = 1; s < pattern_list.length; s++) {
+        regexp_str += "|^" + pattern_list[s]
+            .replace(/\(/g, '\\(')
+                    .replace(/\)/g, '\\)') + '$';
+    }
+
+    return regexp_str;
 }
 
 // 休講・補講情報をまとめたデータを返す
