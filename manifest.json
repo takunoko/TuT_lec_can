@@ -23,13 +23,13 @@
         },
         "content_scripts": [
         {
-            "matches": ["https://www.ead.tut.ac.jp/board/main.aspx""],
+            "matches": ["https://www.ead.tut.ac.jp/board/main.aspx"],
             "js": ["js/jquery-1.12.3.min.js", "js/get_cancell_info.js"]
         }],
         "permissions": [
             "activeTab",
         "storage",
         "tabs",
-        "https://www.ead.tut.ac.jp/",
+        "https://www.ead.tut.ac.jp/"
         ]
 }
