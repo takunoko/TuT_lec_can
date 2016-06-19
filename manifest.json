@@ -17,6 +17,7 @@
             "default_title": "TuT休講・補講Viewer",
             "default_popup": "popup.html"
         },
+        "options_page": "option.html",
         "background": {
             "scripts": ["js/background.js"]
         },

@@ -1,0 +1,15 @@
+body{
+    margin: 10px;
+}
+#hidden_table{
+    width: 300px;
+}
+
+/* 非表示ボタン */
+.hidden_sub_button{
+    width: 80px;
+}
+
+.button_div{
+    text-align: center;
+}

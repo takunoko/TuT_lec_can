@@ -25,8 +25,6 @@ function add_hidden_button(){
 function add_hidden_list(name){
     chrome.storage.local.get(function(items) {
         hidden_list = (items.hidden_list == null) ? [] : JSON.parse(items.hidden_list);
-        // デバッグ リストを空にする
-        // hidden_list = [];
         if ($.inArray(name, hidden_list) >= 0) {
             // 存在する
         }else{
@@ -34,9 +32,6 @@ function add_hidden_list(name){
             hidden_list.push(name);
             chrome.storage.local.set({hidden_list:JSON.stringify(hidden_list)}, function(){});
         }
-        // console.log(name);
-        console.log(hidden_list);
-
         // 更新した情報で再描画
         var tb_c = document.getElementById('grvCancel');
         var tb_u = document.getElementById('grvSupplement');
@@ -121,13 +116,13 @@ function convert_regexp(pattern_list){
     // パターンの文字列を作成する
     // パターンの文字列を正規表現で利用できるようにエスケープする
     // ()しか対応してないから事故るかも．．．
-    regexp_str = pattern_list[0].replace(/\(/g, '\\(')
-            .replace(/\)/g, '\\)');
+    // この場合のパターンは完全一致で．
+    regexp_str = '^' + pattern_list[0].replace(/\(/g, '\\(')
+            .replace(/\)/g, '\\)') + '$';
     for (var s = 1; s < pattern_list.length; s++) {
-        regexp_str += "|" + pattern_list[s]
+        regexp_str += "|^" + pattern_list[s]
             .replace(/\(/g, '\\(')
-                    .replace(/\)/g, '\\)');
-
+                    .replace(/\)/g, '\\)') + '$';
     }
 
     return regexp_str;
