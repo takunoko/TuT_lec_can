@@ -29,44 +29,51 @@
                         <th class="tab_sub" scope="row">科目</th>
                         <th class="tab_teach" scope="row">担当</th>
                     </tr>
-               </table>
-               <div id="select_day">
-                   <button type="button" class="btn btn-success" id="button_prev_day">&lt;&lt; 前日</button>
-                   <button type="button" class="btn btn-success" id="button_today">今日</button>
-                   <button type="button" class="btn btn-success" id="button_next_day">翌日 &gt;&gt;</button>
-               </div>
+                </table>
+                <div id="select_day">
+                    <button type="button" class="btn btn-success" id="button_prev_day">&lt;&lt; 前日</button>
+                    <button type="button" class="btn btn-success" id="button_today">今日</button>
+                    <button type="button" class="btn btn-success" id="button_next_day">翌日 &gt;&gt;</button>
+                </div>
             </div>
 
-            <p>学年と学科を選択</p>
+            <div id="settings">
+                <span>学年と学科を選択</span>
+                <!-- オプションページへのリンク -->
+                <span id="link_option_page">
+                    詳細設定>>
+                </span>
+                <div id="grade">
+                    学年: 
+                    <select id="select_grade" name="学年">
+                        <option value="all">全て</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="M1">M1</option>
+                        <option value="M2">M2</option>
+                    </select> <br/>
+                </div>
+                <div id="class">
+                    学科: 
+                    <select id="select_class" name="学年">
+                        <option value="all">全て</option>
+                        <option value="1">機械</option>
+                        <option value="2">電気・電子情報工学</option>
+                        <option value="3">情報・知能工学</option>
+                        <option value="4">環境・生命工学</option>
+                        <option value="5">建築・都市システム学</option>
+                    </select>
+                </div>
+                <div id="common">
+                    <input type="checkbox" id="com" name="com" value="1">開講学科が共通のものを表示
+                </div>
 
-            <div id="grade">
-                学年: 
-                <select id="select_grade" name="学年">
-                    <option value="all">全て</option>
-                    <option value="B1">B1</option>
-                    <option value="B2">B2</option>
-                    <option value="B3">B3</option>
-                    <option value="B4">B4</option>
-                    <option value="M1">M1</option>
-                    <option value="M2">M2</option>
-                </select> <br/>
-            </div>
-            <div id="class">
-                学科: 
-                <select id="select_class" name="学年">
-                    <option value="all">全て</option>
-                    <option value="1">機械</option>
-                    <option value="2">電気・電子情報工学</option>
-                    <option value="3">情報・知能工学</option>
-                    <option value="4">環境・生命工学</option>
-                    <option value="5">建築・都市システム学</option>
-                </select>
-            </div>
-            <div id="common">
-                <input type="checkbox" id="com" name="com" value="1">開講学科が共通のものを表示
-            </div>
-            <div id="button_save">
-                <input id="save" type="button" value="更新">
+                <!-- 更新ボタン -->
+                <div id="button_save">
+                    <input id="save" type="button" value="更新">
+                </div>
             </div>
         </div>
     </body>

@@ -76,6 +76,24 @@
 }
 
 /* 設定部 */
+#settings{
+    margin: 5px;
+}
 #button_save{
     margin-left: auto;
 }
+/* オプションページヘのリンク */
+#link_option_page{
+    color: #3CF;
+    font-size: 80%;
+    text-decoration: underline;
+    float: right;
+    margin-right: 10px;
+}
+/* マウスオーバー時のエフェクト */
+#link_option_page:hover{
+    color: #E48E00;
+    cursor: pointer;
+    text-decoration:underline;
+}
+

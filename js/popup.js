@@ -32,6 +32,11 @@ $(function(){
         });
     });
 
+    // オプションページへのリンクボタン
+    $("#link_option_page").click(function(){
+        chrome.tabs.create({'url': "/option.html"});
+    });
+
     // ローカルストレージに設定されている値を設定
     chrome.storage.local.get(function(items){
         if (items.grade != null){

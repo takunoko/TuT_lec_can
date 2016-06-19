@@ -8,10 +8,12 @@ $(document).ready(function(){
 // 休講情報の番号を非表示ボタンに置き換える
 function add_hidden_button(){
     // ボタンの追加処理
-    $("#grvCancel > tbody > tr > td:first-child").css('width', '5%');
+    // $("#grvCancel").css('table-layout', 'auto');
+    // 絶対指定にするとずれる
+    $("#grvCancel > tbody > tr > td:first-child").css('min-width', '50px');
     $("#grvCancel > tbody > tr > td:first-child").html('<button class="delete_button">非表示</button>');
 
-    $("#grvSupplement > tbody > tr > td:first-child").css('width', '5%');
+    $("#grvSupplement > tbody > tr > td:first-child").css('min-width', '50px');
     $("#grvSupplement > tbody > tr > td:first-child").html('<button class="delete_button">非表示</button>');
 
     // ボタンクリック時のイベント
