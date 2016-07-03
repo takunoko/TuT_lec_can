@@ -1,0 +1,92 @@
+/* 全体テンプレート */
+
+$color-bg: #FFF;
+$color-nav: #afeeee;
+$color-content: #e0ffff;
+$color-footer: #f0ffff;
+
+html {
+    height: 100%;
+}
+
+body {
+    // font-family: 'Verdana', sans-serif;
+    height: 100%;
+    margin: 0;
+    background-color: $color-bg;
+}
+
+a {
+    color: #2a99b6;
+    &:hover {
+        color: #33bbdf;
+    }
+}
+
+div#content{
+    height: calc(100% - 30px);
+}
+
+header{
+    float: left;
+    height: 100%;
+    width: 20%;
+    background-color: $color-nav;
+
+    div#title{
+        width: 100%;
+        margin: 10px auto;
+    }
+    #logo_img{
+        text-align: center;
+        img{
+            width: 80%;
+        }
+    }
+    h1{
+        // 実際使ってない。
+        // 画像をタイトルの代わりにしてる
+        color: #169bbd;
+        margin: 10px;
+        font-weight: normal;
+        font-size: 22px;
+        a{
+            text-decoration: none;
+        }
+    }
+    nav{
+        margin: 10px;
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li{
+                display: block;
+                font-size: 20px;
+                margin: 0 8px 5px 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+div.page {
+    float: right;
+    height: calc(100% - 40px);
+    padding: 20px;
+    width: calc(80% - 40px);
+    min-height: 100px;
+    background: #f1fbfe;
+}
+footer{
+    height: 30px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background: $color-footer;
+    div#copyright{
+        color: #a9a9a9;
+        text-align: right;
+    }
+}
+
