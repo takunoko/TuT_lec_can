@@ -91,6 +91,10 @@ function update_popup(D_info){
     var cls = "";
     var com = true;
 
+    // 読み込み中アニメーションの挿入
+    $('#cancel_table').find("tr:gt(0)").remove();
+    $('#cancel_table').append('<tr class="cancel_table_tr"><td colspan="4" id="tab_none">読み込み中...</td></tr>');
+
     // 学校ページから情報を取得
     var xhr = new XMLHttpRequest();
     xhr.open('GET', lec_can_page_url, true); // サーバーから非同期でデータを取得
