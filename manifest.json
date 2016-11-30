@@ -3,7 +3,7 @@
         "name": "TuT休講・補講Viewer",
         "short_name": "TuT休補",
         "description": "自分の学年、学科に対応した休講情報を表示する",
-        "version":  "1.4.2",
+        "version":  "1.4.3",
         "icons": {
             "16": "images/icon/icon_16.png",
             "48": "images/icon/icon_48.png",
@@ -23,13 +23,14 @@
         },
         "content_scripts": [
         {
-            "matches": ["https://www.ead.tut.ac.jp/board/main.aspx"],
+            "matches": ["https://www.ead.tut.ac.jp/board/main.aspx", "http://ie.takunoko.com/www/LecCan_list.html"],
             "js": ["js/jquery-1.12.3.min.js", "js/get_cancell_info.js"]
         }],
         "permissions": [
             "activeTab",
         "storage",
         "tabs",
-        "https://www.ead.tut.ac.jp/"
+        "https://www.ead.tut.ac.jp/",
+        "http://ie.takunoko.com/www/"
         ]
 }

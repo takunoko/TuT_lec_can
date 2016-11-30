@@ -1,4 +1,5 @@
-var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
+// var lec_can_page_url = "https://www.ead.tut.ac.jp/board/main.aspx"
+var lec_can_page_url = "http://ie.takunoko.com/www/LecCan_list.html"
 var popup_day = 0;
 
 $(function(){
